@@ -19,7 +19,7 @@ const PROJECTS = [
 	{
 		title: 'News App',
 		image: 'news.png',
-		link: 'https://news-ea1yho2pv-cane4kas-projects.vercel.app'
+		link: 'https://cane4ka.github.io/news-app'
 	}
 ]
 
