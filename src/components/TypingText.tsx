@@ -1,40 +1,55 @@
+import * as m from 'motion/react-m'
 import { useEffect, useState } from 'react'
 
-interface ITypingText {
-	line: string
+interface TypingTextProps {
+	lines: string[]
+	className?: string
 }
 
-export const TypingText = ({ line }: ITypingText) => {
-	const [text, setText] = useState('')
-	const [position, setPosition] = useState(0)
+export const TypingText = ({ lines, className }: TypingTextProps) => {
+	const [currentLineIndex, setCurrentLineIndex] = useState(0)
+	const [currentText, setCurrentText] = useState('')
 	const [isDeleting, setIsDeleting] = useState(false)
-
-	const typingSpeed = 150
-	const deletingSpeed = 75
+	const [typingSpeed, setTypingSpeed] = useState(150)
 
 	useEffect(() => {
-		const timer = setTimeout(
-			() => {
-				if (isDeleting) {
-					setText(line.substring(0, position - 1))
-					setPosition(position - 1)
+		const handleTyping = () => {
+			const currentLine = lines[currentLineIndex]
 
-					if (position === 0) {
-						setIsDeleting(false)
-					}
-				} else {
-					setText(line.substring(0, position + 1))
-					setPosition(position + 1)
-					if (position === line.length) {
-						setIsDeleting(true)
-					}
+			if (isDeleting) {
+				setCurrentText(currentLine.substring(0, currentText.length - 1))
+				setTypingSpeed(75)
+
+				if (currentText === '') {
+					setIsDeleting(false)
+					setCurrentLineIndex((currentLineIndex + 1) % lines.length)
+					setTypingSpeed(500)
 				}
-			},
-			isDeleting ? deletingSpeed : typingSpeed
-		)
+			} else {
+				setCurrentText(currentLine.substring(0, currentText.length + 1))
+				setTypingSpeed(150)
 
+				if (currentText === currentLine) {
+					setIsDeleting(true)
+					setTypingSpeed(2000)
+				}
+			}
+		}
+
+		const timer = setTimeout(handleTyping, typingSpeed)
 		return () => clearTimeout(timer)
-	}, [text, position, isDeleting])
+	}, [currentText, isDeleting, currentLineIndex, lines, typingSpeed])
 
-	return <h1 className='title text-4xl text-orange-500'>{text}</h1>
+	return (
+		<div className={className}>
+			<span>{currentText}</span>
+			<m.span
+				animate={{ opacity: [0, 1, 0] }}
+				transition={{ duration: 0.8, repeat: Infinity }}
+				className='ml-1'
+			>
+				|
+			</m.span>
+		</div>
+	)
 }
