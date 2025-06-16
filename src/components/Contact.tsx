@@ -24,7 +24,7 @@ const Contact = () => {
 		const text = `Новое сообщение:\nИмя: ${data.name}\nEmail: ${data.email}\nСообщение: ${data.message}`
 
 		try {
-			await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+			await fetch(`https://api.telegram.org/${BOT_TOKEN}/sendMessage`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ chat_id: CHAT_ID, text })
