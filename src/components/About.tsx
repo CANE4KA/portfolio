@@ -32,7 +32,7 @@ const About = () => {
 							{ label: 'Name', value: 'Alexander' },
 							{ label: 'Email', value: 'pony.123987@yandex.ru' },
 							{ label: 'Experience', value: '18 Years' },
-							{ label: 'Location', value: 'Tumen' }
+							{ label: 'Location', value: 'Tyumen' }
 						].map((item, index) => (
 							<m.div
 								key={item.label}
