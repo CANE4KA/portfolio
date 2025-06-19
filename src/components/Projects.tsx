@@ -6,7 +6,7 @@ const PROJECTS = [
 	{
 		title: 'Weather App',
 		description: 'A weather application with real-time data and forecasts',
-		image: '/portfolio/weather.png',
+		image: '/weather.png',
 		link: 'https://t.me/WeatherApps_bot',
 		technologies: ['React', 'TypeScript', 'Axios', 'REST API', 'Zustand'],
 		github: 'https://github.com/cane4ka/weather-app'
@@ -14,7 +14,7 @@ const PROJECTS = [
 	{
 		title: 'Briefeditor',
 		description: 'An application for editing a letter.',
-		image: '/portfolio/brief.webp',
+		image: '/brief.webp',
 		link: 'https://cane4ka.github.io/briefeditor/',
 		technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 		github: 'https://github.com/CANE4KA/briefeditor'
@@ -22,7 +22,7 @@ const PROJECTS = [
 	{
 		title: 'Avatar Editor App',
 		description: 'Application for editing avatar',
-		image: '/portfolio/avatar-editor.png',
+		image: '/avatar-editor.png',
 		link: 'https://cane4ka.github.io/avatar-editor-app/',
 		technologies: ['React', 'HTML5 Canvas'],
 		github: 'https://github.com/CANE4KA/avatar-editor-app'
@@ -30,7 +30,7 @@ const PROJECTS = [
 	{
 		title: 'News App',
 		description: 'An application in which you can view news',
-		image: '/portfolio/news.png',
+		image: '/news.png',
 		link: 'https://cane4ka.github.io/news-app/',
 		technologies: ['React', 'Axios', 'REST API'],
 		github: 'https://github.com/CANE4KA/news-app'
