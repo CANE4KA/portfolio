@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import * as m from 'motion/react-m'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-const BOT_TOKEN = 'bot7929836999:AAEJP7RsJik_bw0Q6AhLUfPZPrrAMWi71Uk'
+const test_id = 'bot7929836999:AAFTKpMuINN_oS1QJk-1lmpliEzs9EpXT44'
 const CHAT_ID = '-4526840969'
 
 const Contact = () => {
@@ -24,7 +24,7 @@ const Contact = () => {
 		const text = `Новое сообщение:\nИмя: ${data.name}\nEmail: ${data.email}\nСообщение: ${data.message}`
 
 		try {
-			await fetch(`https://api.telegram.org/${BOT_TOKEN}/sendMessage`, {
+			await fetch(`https://api.telegram.org/${test_id}/sendMessage`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ chat_id: CHAT_ID, text })
